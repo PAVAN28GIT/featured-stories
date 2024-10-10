@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/output.css">
+  
+</head>
+<body class="font-poppins bg-cyan-100 "">
+    <div class="flex lg:min-h-screen flex-col lg:flex-row items-center justify-center">
+
+        <!-- Left Section: Image & Message -->
+        <div class="image  lg:flex items-center justify-center relative min-h-screen bg-center bg-cover   lg:w-1/2 hidden" style="background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lepy9.jpg');">
+            <div class="absolute h-full inset-0 bg-gradient-to-l from-transparent via-opacity-80 to-gray-600"></div>
+            <div class="message relative leading-tight font-extrabold px-4 md:px-20 lg:px-20 xl:px-32 lg:pt-20 pb-10 z-10 text-6xl md:text-8xl lg:text-7xl xl:text-8xl text-white">
+                Sign up to Share your stories with us.
+          
+            </div>
+        </div>
+
+   
+        <!-- Right section -->
+        <div class="form w-full lg:w-1/2 px-8 py-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-center font-nunito">Welcome Back</h1>
+            <a href="your-route-here" class="btn btn-outline w-3/4 ml-20  border-4 h-14  bg-gray-100 rounded-xl mb-6 text-black hover:bg-black hover:text-white text-center flex items-center justify-center">
+                <span class="text-xl">Login as Guest</span>
+            </a>
+            
+        
+            <div class="or flex items-center space-x-4 py-4">
+                <div class="w-full h-[0.075rem] bg-gray-500"></div>
+                <div class="text-xl pb-1">or</div>
+                <div class="w-full h-[0.075rem] bg-gray-500"></div>
+            </div>
+
+            <form action="/your route" method="post">
+                <input
+                    class="border-2 w-3/4 ml-20  outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 mb-4 rounded-xl"
+                    placeholder="Enter the email"
+                    type="text"
+                    name="email"
+                    required
+                />
+                <input
+                    class="border-2 w-3/4 ml-20  outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 rounded-xl"
+                    placeholder="Enter the password"
+                    type="text"
+                    name="password"
+                    required
+                />
+                <input type="submit" class="mt-3 btn btn-active btn-neutral h-12 bg-black text-white w-3/4 ml-20  text-lg rounded-xl mb-6" value="Log in" />
+
+            </form>
+    
+        
+            <div class="text-center">
+                <span>No account?</span>
+                <a href="/signup" class="font-bold cursor-pointer hover:underline ml-1">
+                    Create an account
+                </a>
+            </div>
+        </div>
+
+    
+    </div>
+</body>
+</html>
