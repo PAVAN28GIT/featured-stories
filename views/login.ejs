@@ -30,6 +30,13 @@
    
         <!-- Right section -->
         <div class="form w-full lg:w-1/2 px-8 py-10">
+
+            <% if (message) { %>
+                <div class="absolute top-0 -mt-4 left-1/2 transform -translate-x-1/2 bg-red-200 text-black font-bold p-2 rounded-md shadow-lg z-90 opacity-100 transition-opacity duration-1000" id="error-message">
+                    <%= message %>
+                </div>
+            <% } %>
+            
             <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-center font-nunito">Welcome Back</h1>
             <a href="your-route-here" class="btn btn-outline w-3/4 ml-20  border-4 h-14  bg-gray-100 rounded-xl mb-6 text-black hover:bg-black hover:text-white text-center flex items-center justify-center">
                 <span class="text-xl">Login as Guest</span>
@@ -42,7 +49,7 @@
                 <div class="w-full h-[0.075rem] bg-gray-500"></div>
             </div>
 
-            <form action="/your route" method="post">
+            <form action="/users/login" method="post">
                 <input
                     class="border-2 w-3/4 ml-20  outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 mb-4 rounded-xl"
                     placeholder="Enter the email"
@@ -64,7 +71,7 @@
         
             <div class="text-center">
                 <span>No account?</span>
-                <a href="/signup" class="font-bold cursor-pointer hover:underline ml-1">
+                <a href="/users/register" class="font-bold cursor-pointer hover:underline ml-1">
                     Create an account
                 </a>
             </div>
@@ -72,5 +79,18 @@
 
     
     </div>
+
+    <script>
+        // Auto-hide the error message after 1 second
+        const errorMessageElement = document.getElementById('error-message');
+        if (errorMessageElement) {
+            setTimeout(() => {
+                errorMessageElement.style.opacity = '0'; // Fade out effect
+                setTimeout(() => {
+                    errorMessageElement.style.display = 'none'; // Hide after fade out
+                }, 1000); // Wait for the fade-out transition
+            }, 1000); // Show for 1 second
+        }
+    </script>
 </body>
 </html>

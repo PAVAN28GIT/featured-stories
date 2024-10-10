@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+<body>
+    <!-- Include the Navbar -->
+    <div class="relative z-20">
+        <%- include('partials/nav') %>
+    </div>
+
+    <div class="flex lg:min-h-screen flex-col lg:flex-row items-center justify-center bg-cyan-100">
+        <!-- Left Section: Image & Message -->
+        <div class="image lg:flex items-center justify-center relative min-h-screen bg-center bg-cover lg:w-1/2 hidden" style="background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lepy9.jpg');">
+            <div class="absolute h-full inset-0" style="background: linear-gradient(to right, #313234, transparent);"></div>
+            <div class="message relative leading-tight font-extrabold px-4 md:px-20 lg:px-20 xl:px-32 lg:pt-20 pb-10 z-10 text-6xl md:text-8xl lg:text-7xl xl:text-8xl text-white">
+                Sign up to Share your stories with us.
+            </div>
+        </div>
+
+        <!-- Right section -->
+        <div class="form w-full lg:w-1/2 px-8 py-10 relative">
+
+            <% if (message) { %>
+                <div class="absolute top-0 -mt-4 left-1/2 transform -translate-x-1/2 bg-red-200 text-black font-bold p-2 rounded-md shadow-lg z-90 opacity-100 transition-opacity duration-1000" id="error-message">
+                    <%= message %>
+                </div>
+            <% } %>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-center font-nunito">Create account</h1>
+
+            <form action="/register" method="post">
+                <input
+                    class="border-2 w-3/4 ml-20 outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 mb-4 rounded-xl"
+                    placeholder="Enter name"
+                    type="text"
+                    name="name"
+                    required
+                />
+                <input
+                    class="border-2 w-3/4 ml-20 outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 mb-4 rounded-xl"
+                    placeholder="Enter the email"
+                    type="text"
+                    name="email"
+                    required
+                />
+                <input
+                    class="border-2 w-3/4 ml-20 outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 rounded-xl"
+                    placeholder="Enter the password"
+                    type="password"
+                    name="password"
+                    required
+                />
+                <input type="submit" class="mt-3 btn btn-active btn-neutral h-12 bg-black text-white w-3/4 ml-20 text-lg rounded-xl mb-6" value="Create account" />
+            </form>
+
+            <div class="text-center">
+                <span>Already have account?</span>
+                <a href="/users/login" class="font-bold cursor-pointer hover:underline ml-1">
+                    Sign up!
+                </a>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script>
+        // Auto-hide the error message after 1 second
+        const errorMessageElement = document.getElementById('error-message');
+        if (errorMessageElement) {
+            setTimeout(() => {
+                errorMessageElement.style.opacity = '0'; // Fade out effect
+                setTimeout(() => {
+                    errorMessageElement.style.display = 'none'; // Hide after fade out
+                }, 1000); // Wait for the fade-out transition
+            }, 1000); // Show for 1 second
+        }
+    </script>
+</body>
+</html>
