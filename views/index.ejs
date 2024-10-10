@@ -3,41 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Featured Stories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/output.css">
-
 </head>
 
-<body class="font-poppins bg-gray-100">
+<body class="bg-cyan-100">
 
+    <div class="m-1"></div>
     <!-- Include the Navbar -->
     <%- include('partials/nav') %>
-
     <!-- Hero Section -->
-    <div class="relative h-screen flex items-center justify-center bg-center bg-cover opacity-90" style="background-image: url('/images/hero-bg.jpg');">
+    <div class="relative h-screen flex items-center bg-cover bg-[url('/images/hero-bg.jpg')] bg-top bg-center">        
         <!-- Overlay Gradient -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent opacity-90"></div>
- 
-                    <!-- Text on Image -->
-                    <div class="relative z-10 w-full px-24 text-left text-white -mt-48 ">
-                        <h1 class="text-3xl md:text-6xl font-bold mb-1 whitespace-nowrap">Welcome To</h1>
-                        <h1 class="text-4xl md:text-8xl font-extrabold mb-1 whitespace-nowrap font-nunito ">Featured Stories</h1>
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent opacity-80"></div>
+
+        <!-- Text on Image -->
+        <div class="relative z-10 w-full px-24 text-left text-white -mt-40 ">
+            <h1 class="text-3xl md:text-6xl font-bold mb-1 whitespace-nowrap">Welcome To</h1>
+            <h1 class="text-4xl md:text-8xl font-extrabold mb-1 whitespace-nowrap font-nunito ">Featured Stories</h1>
                         
-                        <h2 class="text-xl md:text-3xl font-nunito leading-tight mt-3 font-thin ">
-                            Your thoughts matter — Share your thoughts today and read them in the future!
-                        </h2>
+            <h2 class="text-xl md:text-3xl font-nunito leading-tight mt-3 font-thin ">
+                Your thoughts matter — Share your thoughts today and read them in the future!
+            </h2>
                         
-                        <h1 class="text-3xl md:text-6xl font-bold mb-1 whitespace-nowrap"> Start sharing your stories now!</h1>
-                        <a href="/signup" class="bg-white text-black font-bold px-6 py-2 mt-6 inline-block rounded-md hover:bg-cyan-200 hover:text-black text-2xl">
-                            Get started
-                        </a>
-                    </div>
-                    
-      
-            
-            
+            <h1 class="text-3xl md:text-6xl font-bold mb-1 whitespace-nowrap"> Start sharing now...</h1>
+            <a href="/signup" class="bg-white text-black font-bold px-6 py-2 mt-6 inline-block rounded-md hover:bg-cyan-200 hover:text-black text-2xl">
+                Get started
+            </a>
         </div>
     </div>
 
+    <!-- Content Section -->
+    <div class="relative min-h-screen bg-cyan-50 ">
+        <!-- Other content goes here -->
+    </div>
+
+    <!-- Include the Footer -->
+    <%- include('partials/footer') %>
+
 </body>
-</html> 
+</html>

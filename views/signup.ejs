@@ -8,16 +8,24 @@
   
 </head>
 <body class="font-poppins bg-cyan-100 "">
+
+    <div class="m-2"></div>
+    <!-- Include the Navbar -->
+    <div class="relative z-20">
+        <%- include('partials/nav') %>
+    </div>
+
     <div class="flex lg:min-h-screen flex-col lg:flex-row items-center justify-center">
 
         <!-- Left Section: Image & Message -->
-        <div class="image  lg:flex items-center justify-center relative min-h-screen bg-center bg-cover   lg:w-1/2 hidden" style="background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lepy9.jpg');">
-            <div class="absolute h-full inset-0 bg-gradient-to-l from-transparent via-opacity-80 to-gray-600"></div>
+        <div class="image lg:flex items-center justify-center relative min-h-screen bg-center bg-cover lg:w-1/2 hidden" style="background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lepy9.jpg');">
+            <div class="absolute h-full inset-0" style="background: linear-gradient(to right, #313234, transparent);"></div>
+           
             <div class="message relative leading-tight font-extrabold px-4 md:px-20 lg:px-20 xl:px-32 lg:pt-20 pb-10 z-10 text-6xl md:text-8xl lg:text-7xl xl:text-8xl text-white">
                 Sign up to Share your stories with us.
-          
             </div>
         </div>
+        
 
    
         <!-- Right section -->
