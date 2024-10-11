@@ -8,16 +8,15 @@
 
 </head>
 <body class=" bg-cyan-100 ">
-    <div class="m-2"></div>
     <%- include('partials/nav')  %>
 
     <div class="main min-h-screen w-full flex flex-col  items-center">
 
-        <h1 class="text-5xl text-black font-nunito font-bold mt-5">Welcome Pavan 👋</h1>
+        <h1 class="text-5xl text-black font-nunito font-bold mt-5">Welcome <%=user.name.charAt(0).toUpperCase() + user.name.slice(1) %> 👋</h1>
 
         <!-- input form -->
         <div class="form p-10 text-wrap w-3/4 ">
-            <form action="/create" method="post" > 
+            <form action="/profile/create" method="post" > 
                 <input class="block w-full bg-zinc-600 rounded-md h-10 mt-5 px-5 text-white" type="text" name="title" placeholder="Title goes here..." required>
                 <textarea class="block w-full bg-zinc-600 rounded-md h-28 mt-5 px-5 pt-3 text-white resize-none" name="story" placeholder="Story goes here..." required></textarea>
                 <input class=" bg-cyan-700 text-white w-32 h-10 mt-3 px-5 rounded-md text-xl" type="submit" value="Post">
@@ -29,23 +28,43 @@
         <!-- display cards flex gap  -->
         <div class="tasks px-24 py-10 flex gap-4 flex-wrap text-white" >
 
-            <div class="task px-7 w-72 h-36 bg-zinc-600 p-3 rounded-md">
-                <h1 class="font-bold text-3xl mt-2 font-nunito"> Title %> </h1>
-                <a class="inline-block mt-8 text-cyan-100 " href="/posts"> Read More...</a>
-            </div>
-            <div class="task px-7 w-72 h-36 bg-zinc-600 p-3 rounded-md">
-                <h1 class="font-bold text-3xl mt-2 font-nunito"> Title %> </h1>
-                <a class="inline-block mt-8 text-blue-200 " href="/posts"> Read More...</a>
-            </div>
-        
-            <div class="task px-7 w-72 h-36 bg-zinc-600 p-3 rounded-md">
-                <h1 class="font-bold text-3xl mt-2 font-nunito"> Title %> </h1>
-                <a class="inline-block mt-8 text-blue-200 " href="/posts"> Read More...</a>
-            </div>
+            <% if (message) { %>
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-red-200 text-black font-bold px-4 py-2 rounded-md shadow-lg z-90 opacity-100 transition-opacity duration-1000" id="error-message">
+                    <%= message %>
+                </div>
+            <% } %>
+      
 
+                
+            <% if(user.posts.length > 0){ %>
+                <% user.posts.forEach( function(post){%>
+                    <div class="task px-7 w-72 bg-zinc-600 p-3 rounded-md">
+                        <h1 class="font-bold text-3xl mt-2 font-nunito break-words"> <%= post.title %> </h1>
+                        <a class="inline-block mt-8 text-blue-200" href="/profile/<%= user.name %>/<%= post._id %>"> Read More...</a>
+                    </div>
+                    
+                <%})%>
+
+            <% }else{ %>
+                <h1> No Posts yet!! Create New Post</h1>
+            <%}%>
+            
 
         </div>
     </div>
+
+    <script>
+        // Auto-hide the error message after 1 second
+        const errorMessageElement = document.getElementById('error-message');
+        if (errorMessageElement) {
+            setTimeout(() => {
+                errorMessageElement.style.opacity = '0'; // Fade out effect
+                setTimeout(() => {
+                    errorMessageElement.style.display = 'none'; // Hide after fade out
+                }, 1000); // Wait for the fade-out transition
+            }, 1000); // Show for 1 second
+        }
+    </script>
 
 
    

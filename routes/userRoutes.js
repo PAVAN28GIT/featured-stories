@@ -5,6 +5,7 @@ const router = express.Router();
 const userModel = require('../models/user-model.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const JWT = process.env.JWTKEY;
 
 
 
@@ -29,11 +30,6 @@ router.post('/register', async (req, res) => {
         email,
         password: hash
     });
-
-    // Create JWT token
-    const token = jwt.sign({ email: email }, process.env.JWT_SECRET); // Use your JWT secret
-    res.cookie('token', token);
-
     res.render('register', { message: 'Account created' });
 });
 
@@ -52,11 +48,11 @@ router.post('/login', async (req, res) => {
 
     const result = await bcrypt.compare(password, user.password);
     if (result) {
-        // Create JWT token
-        const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
+        // Create JWT token and send in reponse
+        const token = jwt.sign({ email: user.email }, JWT);
         res.cookie('token', token);
 
-        return res.render('profile', { user });
+        return res.redirect(`/profile`);
     } else {
         return res.render('login', { message: 'Incorrect email or password' });
     }

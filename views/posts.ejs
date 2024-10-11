@@ -14,7 +14,7 @@
 
     <div class="main min-h-screen w-full  flex flex-col mt-5 items-center">
 
-        <h1 class="text-5xl text-black font-nunito font-bold mt-5">FileName</h1>
+        <h1 class="text-5xl text-black font-nunito font-bold mt-5"><%= post.title %></h1>
         
         <div class="flex justify-between w-full mt-2 px-44">
             <a class="text-cyan-950 text-xl font-mono" href="/profile">Go Back...</a>
@@ -22,12 +22,12 @@
         </div>
     
         <div class="p-10 w-3/4 mt-5 bg-zinc-700 text-white rounded-lg shadow-lg">
-            <p class="text-center">Data</p>
+            <p class="text-center text-white text-xl font-nunito"><%= post.body %></p>
         </div>
     
         <div class="flex justify-between w-3/4 mt-5">
-            <a class="bg-cyan-900 text-white text-xl font-semibold py-2 px-4 rounded hover:bg-cyan-700 transition" href="/update">Update</a>
-            <a class="bg-red-600 text-white text-xl font-semibold py-2 px-4 rounded hover:bg-red-500 transition" href="#">Delete</a>
+            <a class="bg-cyan-900 text-white text-xl font-semibold py-2 px-4 rounded hover:bg-cyan-700 transition" href="/update">
+            <a class="bg-red-600 text-white text-xl font-semibold py-2 px-4 rounded hover:bg-red-500 transition" href="/profile/delete/<%= post._id %>">Delete</a>
         </div>
     
     </div>
