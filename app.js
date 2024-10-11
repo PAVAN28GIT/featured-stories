@@ -7,10 +7,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const dotenv = require('dotenv');
 
-
 dotenv.config({ path: './config.env' })
-
-
 
 // middlewares
 app.set("view engine" , "ejs");
@@ -20,17 +17,9 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(cookiParser());
 
 
-
-//connect to mongodb
-const db = require("./config/mongoose-connection.js");
-const userModel = require("./models/user-model.js");
-const postModel = require("./models/posts-model.js");
-
-
 //routes
 const userRoutes = require('./routes/userRoutes.js');
 const profileRoutes = require('./routes/profileRoutes.js'); 
-
 
 
 app.get("/" , (req,res)=>{
