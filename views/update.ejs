@@ -13,7 +13,7 @@
 
 
 
-    <div class="main min-h-screen w-full flex flex-col  items-center">
+    <div class="main mt-5 w-full flex flex-col  items-center">
        
 
         <!-- input form -->
@@ -21,10 +21,11 @@
             <div class="flex justify-between w-full mt-2">
                 <a class="text-cyan-950 text-xl font-mono" href="/profile">Go Back...</a>
             </div>
-            <form action="/create" method="post" >
+            <form action="/profile/update/<%= post._id %>" method="post" >
                  
-                <input class="block w-full bg-zinc-600 rounded-md h-10 mt-5 px-5 text-white" type="text" name="title" placeholder="Title goes here..." required>
-                <textarea class="block w-full bg-zinc-600 rounded-md h-28 mt-5 px-5 pt-3 text-white resize-none" name="story" placeholder="Story goes here..." required></textarea>
+        
+                <input class="block w-full bg-zinc-600 rounded-md h-10 mt-5 px-5 text-white" type="text" name="title" value="<%= post.title %>" readonly>
+                <textarea class="block w-full bg-zinc-600 rounded-md min-h-80 mt-5 px-5 pt-3 text-white resize-none" name="newbody" placeholder=" Enter New data here..." required></textarea>
                 <input class=" bg-cyan-800 text-white text-xl font-nunito w-32 h-10 mt-3 px-5 rounded-md" type="submit" value="Update">
             </form>
 

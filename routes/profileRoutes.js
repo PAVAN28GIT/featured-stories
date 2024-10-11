@@ -44,6 +44,37 @@ router.post("/create" ,verifyToken, async(req,res)=>{
     res.redirect(`/profile`);
 });
 
+// update get method
+router.get("/update/:postid", verifyToken, async (req, res) => {
+    var post = await postModel.findById(req.params.postid);
+    res.render("update" , {post});
+});
+// update post method
+router.post("/update/:postid", verifyToken, async (req, res) => { 
+    let {title , newbody} = req.body;
+    try {
+        await postModel.findByIdAndUpdate(req.params.postid, { body: newbody });
+        res.redirect(`/profile/${req.user.name}/${req.params.postid}`);
+    } catch (error) {
+        console.error("Error updating post:", error);
+        res.status(500).send("Error updating post.");
+    }
+
+});
+
+router.get("/delete/:postid", verifyToken ,  async (req, res) => {
+    const post = await postModel.findById(req.params.postid);
+    if (!post) {
+        return res.send("Post not found.");
+    }
+    await postModel.deleteOne({ _id: req.params.postid });
+
+    const userid = req.user._id;
+
+    var us = await userModel.findByIdAndUpdate(userid, { $pull: { posts: req.params.postid } });
+    res.redirect("/profile"); 
+});
+
 // show post -> view more
 router.get("/:username/:posid" , async(req ,res)=>{
     
@@ -51,25 +82,10 @@ router.get("/:username/:posid" , async(req ,res)=>{
     if (!post) {
         console.log("post not found " , postid);
         res.redirect("/profile");  // diaplay post not found
-    }   
+    }
     res.render("posts" , {post});
 });
-
-
-router.get("/delete/:postid", async (req, res) => {
-    res.send("ey breo ")
-    // console(req.params);
-    // const post = await postModel.findById(req.params.postid);
-    // if (!post) {
-    //     return res.send("Post not found.");
-    // }
-    // await postModel.deleteOne({ _id: req.params.postid });
-
-    // const userid = req.user._id; // Ensure req.user is populated by your middleware
-    // var us = await User.findByIdAndUpdate(userid, { $pull: { posts: req.params.postid } });
-    // console.log("Updated User:", us);
-    // res.send("hey bro done deleting");
-});
+    
 
 
 module.exports = router;

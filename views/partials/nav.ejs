@@ -1,4 +1,4 @@
-<nav class="bg-beige p-4 px-4 md:px-24 flex items-center justify-between shadow-md bg-cyan-200 opacity-80 rounded-xl">
+<!-- <nav class="bg-beige p-4 px-4 md:px-24 flex items-center justify-between shadow-md bg-cyan-200 opacity-80 rounded-xl">
     <div class="flex items-center space-x-4 text-black">
         <a href="/" class="text-3xl font-bold flex items-center font-nunito">
             <span>Featured Stories</span>
@@ -10,4 +10,45 @@
     <a href="/users/login" class="btn btn-outline border-2 border-black p-1 md:px-3 md:py-1 text-l font-medium bg-white hover:bg-black hover:text-white rounded-md">
         Sign In
     </a>
+</nav> -->
+
+
+<nav class="bg-beige p-4 px-4 md:px-24 flex items-center justify-between shadow-md bg-cyan-200 opacity-80 rounded-xl">
+    <div class="flex items-center space-x-4 text-black">
+        <a href="/" class="text-3xl font-bold flex items-center font-nunito">
+            <span>Featured Stories</span>
+        </a>
+        <div class="hidden px-3 md:flex space-x-8 ">
+            <a href="#" class="text-2xl">Home</a>
+        </div>
+    </div>
+    <!-- Button will be dynamically updated via JavaScript -->
+    <a id="auth-btn" href="/users/login" class="btn btn-outline border-2 border-black p-1 md:px-3 md:py-1 text-l font-medium bg-white hover:bg-black hover:text-white rounded-md">
+        Sign In
+    </a>
 </nav>
+
+<!-- Add this script block at the bottom of your HTML page or inside a <script> tag -->
+<script>
+    // Function to get a cookie by its name
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    // Check if the token cookie is present
+    const token = getCookie('token'); // Assuming the JWT token is stored in 'token' cookie
+
+    // Select the button element
+    const authBtn = document.getElementById('auth-btn');
+
+    // If the token exists, show 'Log Out' button, otherwise show 'Sign In'
+    if (token) {
+        authBtn.textContent = 'Log Out';
+        authBtn.href = '/users/logout'; // Redirect to logout route
+    } else {
+        authBtn.textContent = 'Sign In';
+        authBtn.href = '/users/login'; // Redirect to login route
+    }
+</script>

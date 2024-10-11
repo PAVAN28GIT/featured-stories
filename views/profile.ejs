@@ -12,13 +12,13 @@
 
     <div class="main min-h-screen w-full flex flex-col  items-center">
 
-        <h1 class="text-5xl text-black font-nunito font-bold mt-5">Welcome <%=user.name.charAt(0).toUpperCase() + user.name.slice(1) %> 👋</h1>
+        <h1 class="text-5xl text-black font-nunito font-bold mt-9">Welcome <%=user.name.charAt(0).toUpperCase() + user.name.slice(1) %> 👋</h1>
 
         <!-- input form -->
         <div class="form p-10 text-wrap w-3/4 ">
             <form action="/profile/create" method="post" > 
                 <input class="block w-full bg-zinc-600 rounded-md h-10 mt-5 px-5 text-white" type="text" name="title" placeholder="Title goes here..." required>
-                <textarea class="block w-full bg-zinc-600 rounded-md h-28 mt-5 px-5 pt-3 text-white resize-none" name="story" placeholder="Story goes here..." required></textarea>
+                <textarea class="block w-full bg-zinc-600 rounded-md min-h-52 mt-5 px-5 pt-3 text-white resize-none" name="story" placeholder="Story goes here..." required></textarea>
                 <input class=" bg-cyan-700 text-white w-32 h-10 mt-3 px-5 rounded-md text-xl" type="submit" value="Post">
             </form>
 
@@ -46,7 +46,7 @@
                 <%})%>
 
             <% }else{ %>
-                <h1> No Posts yet!! Create New Post</h1>
+                <h1 class="text-xl text-black font-nunito"> No Posts yet!! Create New Post</h1>
             <%}%>
             
 

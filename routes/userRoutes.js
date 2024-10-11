@@ -58,4 +58,10 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+router.get("/logout"  , (req, res)=> {
+    res.cookie("token" , "");
+    res.render("index");
+});
+
 module.exports = router;
