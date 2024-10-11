@@ -44,8 +44,9 @@ app.use('/users', userRoutes);
 app.use('/profile', profileRoutes);
 
 
-
-app.listen(5001 , ()=>{
-    console.log("server running at 5001");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
+
 

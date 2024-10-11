@@ -5,6 +5,7 @@ dotenv.config({ path: './config.env' })
 // database url
 const mongoURI = process.env.MONGO_URI;
 //connect
+console.log("Waiting for database to connect....");
 mongoose.connect(mongoURI)
 .then(() => {
     console.log("connected to featured stories db");
