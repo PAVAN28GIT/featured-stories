@@ -705,6 +705,10 @@ video {
   margin-left: 1.25rem;
 }
 
+.-mt-10{
+  margin-top: -2.5rem;
+}
+
 .block{
   display: block;
 }
@@ -811,6 +815,10 @@ video {
 
 .resize-none{
   resize: none;
+}
+
+.flex-row{
+  flex-direction: row;
 }
 
 .flex-col{
@@ -1170,6 +1178,11 @@ video {
   padding-bottom: 0.25rem;
 }
 
+.py-0{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .pb-1{
   padding-bottom: 0.25rem;
 }
@@ -1499,6 +1512,11 @@ video {
   .lg\:px-10{
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+
+  .lg\:py-10{
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .lg\:pt-20{

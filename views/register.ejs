@@ -12,7 +12,7 @@
         <%- include('partials/nav') %>
     </div>
 
-    <div class="flex lg:min-h-screen flex-col lg:flex-row items-center justify-center bg-cyan-100">
+    <div class="flex min-h-screen flex-col lg:flex-row items-center justify-center bg-cyan-100">
         <!-- Left Section: Image & Message -->
         <div class="image lg:flex items-center justify-center relative min-h-screen bg-center bg-cover lg:w-1/2 hidden" style="background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lepy9.jpg');">
             <div class="absolute h-full inset-0" style="background: linear-gradient(to right, #313234, transparent);"></div>
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Right section -->
-        <div class="form w-full lg:w-1/2 px-8 py-10 relative">
+        <div class="form w-full lg:w-1/2 px-8 py-2 lg:py-10 -mt-10 lg:m-0 relative">
 
             <% if (message) { %>
                 <div class="absolute top-0 -mt-4 left-1/2 transform -translate-x-1/2 bg-red-200 text-black font-bold p-2 rounded-md shadow-lg z-90 opacity-100 transition-opacity duration-1000" id="error-message">
