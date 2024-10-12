@@ -5,34 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Featured Stories</title>
     <link rel="stylesheet" href="/css/output.css">
-
 </head>
-<body class=" bg-cyan-100 ">
-    <div class="m-2"></div>
-    <%- include("partials/nav")  %>
+<body class="bg-cyan-100">
+ 
+    <%- include("partials/nav") %>
 
-
-
-    <div class="main mt-5 w-full flex flex-col  items-center">
-       
-
-        <!-- input form -->
-        <div class="form p-10 text-wrap w-3/4 ">
-            <div class="flex justify-between w-full mt-2">
-                <a class="text-cyan-950 text-xl font-mono" href="/profile">Go Back...</a>
+    <div class="main mt-10 w-full  flex flex-col items-center">
+        <!-- Input Form -->
+        <div class="form p-5 md:p-10 w-full max-w-3xl">
+            <div class="flex justify-between w-full mb-4">
+                <a class="text-cyan-950 text-lg md:text-xl font-mono hover:underline" href="/profile">Go Back...</a>
             </div>
-            <form action="/profile/update/<%= post._id %>" method="post" >
-                 
-        
-                <input class="block w-full bg-zinc-600 rounded-md h-10 mt-5 px-5 text-white" type="text" name="title" value="<%= post.title %>" readonly>
-                <textarea class="block w-full bg-zinc-600 rounded-md min-h-80 mt-5 px-5 pt-3 text-white resize-none" name="newbody" placeholder=" Enter New data here..." required></textarea>
-                <input class=" bg-cyan-800 text-white text-xl font-nunito w-32 h-10 mt-3 px-5 rounded-md" type="submit" value="Update">
+            <form action="/profile/update/<%= post._id %>" method="post">
+                <input class="block w-full bg-zinc-600 rounded-md h-12 px-5 text-white mb-4" type="text" name="title" value="<%= post.title %>" readonly>
+                <textarea class="block w-full bg-zinc-600 rounded-md h-48 md:h-80 px-5 pt-3 text-white resize-none mb-4" name="newbody" placeholder="Enter new data here..." required></textarea>
+                <input class="bg-cyan-800 text-white text-lg md:text-xl font-nunito w-full md:w-32 h-12 px-5 rounded-md hover:bg-cyan-700 transition" type="submit" value="Update">
             </form>
-
         </div>
-        </div>
-    
-
     </div>
 </body>
 </html>

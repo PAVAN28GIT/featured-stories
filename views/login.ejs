@@ -1,82 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogIn</title>
     <link rel="stylesheet" href="/css/output.css">
-  
 </head>
-<body class="font-poppins bg-cyan-100 "">
+
+<body class="font-poppins bg-cyan-100">
 
     <!-- Include the Navbar -->
     <div class="relative z-20">
         <%- include('partials/nav') %>
     </div>
 
-    <div class="flex lg:min-h-screen flex-col lg:flex-row items-center justify-center">
-
+    <div class="flex flex-col lg:flex-row items-center justify-center min-h-screen lg:space-x-8 ">
+        
         <!-- Left Section: Image & Message -->
-        <div class="image lg:flex items-center justify-center relative min-h-screen bg-center bg-cover lg:w-1/2 hidden" style="background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lepy9.jpg');">
+        <div class="image lg:flex items-center justify-center relative hidden bg-center bg-cover lg:w-1/2 h-64 lg:h-screen" style="background-image: url('https://w.wallhaven.cc/full/3l/wallhaven-3lepy9.jpg');">
             <div class="absolute h-full inset-0" style="background: linear-gradient(to right, #313234, transparent);"></div>
-           
-            <div class="message relative leading-tight font-extrabold px-4 md:px-20 lg:px-20 xl:px-32 lg:pt-20 pb-10 z-10 text-6xl md:text-8xl lg:text-7xl xl:text-8xl text-white">
+
+            <div class="message relative leading-tight font-extrabold px-4 md:px-10 lg:px-20 xl:px-32 py-10 z-10 text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white">
                 Sign up to Share your stories with us.
             </div>
         </div>
-        
 
-   
-        <!-- Right section -->
-        <div class="form w-full lg:w-1/2 px-8 py-10 mt-28 lg:mt-0">
-
+        <!-- Right Section: Login Form -->
+        <div class="form w-full lg:w-1/2 px-8 py-10 lg:px-16 mt-12 lg:mt-0">
             <% if (message) { %>
-                <div class="absolute top-0 -mt-4 left-1/2 transform -translate-x-1/2 bg-red-200 text-black font-bold  px-4 py-2 rounded-md shadow-lg z-90 opacity-100 transition-opacity duration-1000" id="error-message">
+                <div class="absolute top-0 -mt-4 left-1/2 transform -translate-x-1/2 bg-red-200 text-black font-bold px-4 py-2 rounded-md shadow-lg z-90 opacity-100 transition-opacity duration-1000" id="error-message">
                     <%= message %>
                 </div>
             <% } %>
-            
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-center font-nunito">Welcome Back</h1>
-            <a href="/profile" class="btn btn-outline w-3/4 ml-16 md:ml-20 border-4 h-14  bg-gray-100 rounded-xl mb-6 text-black hover:bg-black hover:text-white text-center flex items-center justify-center">
-                <span class="text-xl">Login as Guest</span>
+
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 text-center font-nunito">Welcome Back</h1>
+
+            <a href="/profile" class="btn btn-outline w-full md:w-3/4 lg:w-2/3 mx-auto h-14 bg-gray-100 rounded-xl mb-6 text-black hover:bg-black hover:text-white flex items-center justify-center">
+                <span class="text-lg md:text-xl">Login as Guest</span>
             </a>
-            
-        
+
             <div class="or flex items-center space-x-4 py-4">
-                <div class="w-full h-[0.075rem] bg-gray-500"></div>
-                <div class="text-xl pb-1">or</div>
-                <div class="w-full h-[0.075rem] bg-gray-500"></div>
+                <div class="w-full h-px bg-gray-500"></div>
+                <div class="text-xl">or</div>
+                <div class="w-full h-px bg-gray-500"></div>
             </div>
 
-            <form action="/users/login" method="post">
+            <form action="/users/login" method="post" class="flex flex-col items-center">
                 <input
-                    class="border-2 w-3/4 ml-16 md:ml-20  outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 mb-4 rounded-xl"
-                    placeholder="Enter the email"
-                    type="text"
+                    class="border-2 w-full md:w-3/4 lg:w-2/3 outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 mb-4 rounded-xl"
+                    placeholder="Enter your email"
+                    type="email"
                     name="email"
                     required
                 />
                 <input
-                    class="border-2 w-3/4 ml-16  md:ml-20  outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 rounded-xl"
-                    placeholder="Enter the password"
-                    type="text"
+                    class="border-2 w-full md:w-3/4 lg:w-2/3 outline-none bg-[#fafafa] border-[#c6c6c6] p-3 px-4 mb-4 rounded-xl"
+                    placeholder="Enter your password"
+                    type="password"
                     name="password"
                     required
                 />
-                <input type="submit" class="mt-3 ml-16 md:ml-20 btn btn-active btn-neutral h-12 bg-black text-white w-3/4 text-lg rounded-xl mb-6" value="Log in" />
-
+                <input type="submit" class="btn btn-active btn-neutral h-12 w-full md:w-3/4 lg:w-2/3 bg-black text-white text-lg rounded-xl mb-6 cursor-pointer" value="Log in" />
             </form>
-    
-        
-            <div class="text-center">
+
+            <div class="text-center mt-4">
                 <span>No account?</span>
-                <a href="/users/register" class="font-bold cursor-pointer hover:underline ml-1">
-                    Create an account
-                </a>
+                <a href="/users/register" class="font-bold cursor-pointer hover:underline ml-1">Create an account</a>
             </div>
         </div>
 
-    
     </div>
 
     <script>
@@ -92,4 +85,5 @@
         }
     </script>
 </body>
+
 </html>

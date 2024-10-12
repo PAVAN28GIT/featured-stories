@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,29 +13,30 @@
     <div class="m-1"></div>
     <!-- Include the Navbar -->
     <%- include('partials/nav') %>
+    
     <!-- Hero Section -->
-    <div class="relative h-screen flex items-center bg-cover bg-[url('/images/hero-bg.jpg')] bg-center">        
+    <div class="relative h-screen flex flex-col justify-center items-center text-center sm:text-left sm:items-start bg-cover bg-[url('/images/hero-bg.jpg')] bg-center">
         <!-- Overlay Gradient -->
         <div class="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent opacity-80"></div>
 
         <!-- Text on Image -->
-        <div class="relative z-10 w-full px-10 md:px-24 text-left text-white -mt-32 ">
-            <h1 class="text-4xl md:text-6xl font-bold mb-1 whitespace-nowrap">Welcome To</h1>
-            <h1 class="text-5xl md:text-9xl font-extrabold whitespace-nowrap font-nunito ">Featured Stories</h1>
-                        
-            <h2 class="text-xl md:text-3xl font-nunito leading-tight font-thin ">
+        <div class="relative z-10 w-full px-4 md:px-24 text-white mt-8 sm:mt-0">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-1">Welcome To</h1>
+            <h1 class="text-4xl md:text-7xl lg:text-9xl font-extrabold font-nunito">Featured Stories</h1>
+
+            <h2 class="text-lg md:text-2xl lg:text-3xl font-nunito leading-tight font-thin mt-4">
                 Your thoughts matter — Share your thoughts today and read them in the future!
             </h2>
-                        
-            <h1 class="text-3xl md:text-6xl font-bold mb-1 whitespace-nowrap"> Start sharing now...</h1>
-            <a href="/users/login" class="bg-cyan-50 text-black font-bold px-6 py-2 mt-6 inline-block rounded-md hover:bg-cyan-200 hover:text-black text-2xl">
+
+            <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 mt-2">Start sharing now...</h1>
+            <a href="/users/login" class="bg-cyan-50 text-black font-bold px-4 py-2 md:px-6 md:py-3 rounded-md hover:bg-cyan-200 text-xl md:text-2xl inline-block mt-4">
                 Get started
             </a>
         </div>
     </div>
 
     <!-- Content Section -->
-    <div class="relative min-h-screen bg-cyan-50 ">
+    <div class="relative min-h-screen bg-cyan-50">
         <!-- Other content goes here -->
     </div>
 
@@ -42,4 +44,5 @@
     <%- include('partials/footer') %>
 
 </body>
+
 </html>
