@@ -25,7 +25,6 @@ const verifyToken = async (req, res, next) => {
     }
 };
 
-
 router.get("/" ,verifyToken,(req,res)=>{
     // verify the jwt token  -> middleware function will do that 
     // if user exist in db , then render profile page showing his name 
