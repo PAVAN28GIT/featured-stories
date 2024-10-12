@@ -20,12 +20,12 @@ Before running the application, make sure you have the following installed:
 
 Follow these steps to set up and run the project locally:
 
-1. git clone
+1. git clone <repo link>
 2. npm install
 3. npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
 4. npm run dev or npm start
 
-** Now open your browser and navigate to http://localhost:3000 to use the app.
+- Now open your browser and navigate to http://localhost:3000 to use the app.
 
 
 
